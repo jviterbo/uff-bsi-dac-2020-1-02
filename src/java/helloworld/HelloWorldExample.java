@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -43,8 +44,18 @@ public class HelloWorldExample {
     @GET
     @Path("{name}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String sayHelloGuy(@PathParam("name") String name) {
-        return "Hello, "+name+"!";
+    public String sayHelloGuy(@PathParam("name") String name, @QueryParam("lang") String lang) {
+        if("pt".equals(lang))
+            return "Olá, "+name+"!";
+        if("en".equals(lang))
+            return "Hello, "+name+"!";
+        if("fr".equals(lang))
+            return "Bonjour, "+name+"!";
+        if("it".equals(lang))
+            return "Ciao, "+name+"!";
+        if("de".equals(lang))
+            return "Hallo, "+name+"!";
+        return "Olá, "+name+"!";
     }
 
     
