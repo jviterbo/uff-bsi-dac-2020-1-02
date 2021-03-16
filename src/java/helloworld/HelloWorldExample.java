@@ -49,13 +49,34 @@ public class HelloWorldExample {
             return "Olá, "+name+"!";
         if("en".equals(lang))
             return "Hello, "+name+"!";
+        if("es".equals(lang))
+            return "Hola, "+name+"!";
         if("fr".equals(lang))
             return "Bonjour, "+name+"!";
         if("it".equals(lang))
             return "Ciao, "+name+"!";
         if("de".equals(lang))
             return "Hallo, "+name+"!";
-        return "Olá, "+name+"!";
+        return "Saluton, "+name+"!";
+    }
+
+    @GET
+    @Path("{name}/{sname}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String sayHelloGuySname(@PathParam("name") String name, @PathParam("sname") String sname, @QueryParam("lang") String lang) {
+        if("pt".equals(lang))
+            return "Olá, "+name+" "+sname+"!";
+        if("en".equals(lang))
+            return "Hello, "+name+" "+sname+"!";
+        if("es".equals(lang))
+            return "Hola, "+name+" "+sname+"!";
+        if("fr".equals(lang))
+            return "Bonjour, "+name+" "+sname+"!";
+        if("it".equals(lang))
+            return "Ciao, "+name+" "+sname+"!";
+        if("de".equals(lang))
+            return "Hallo, "+name+" "+sname+"!";
+        return "Saluton, "+name+" "+sname+"!";
     }
 
     
